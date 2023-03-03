@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Kenia&family=Kumbh+Sans:wght@400;700&family=Manrope:wght@200&family=Poppins:wght@200;500&family=Roboto:wght@100;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scroll text on the side */
+#scroll-text {
+  letter-spacing: 0.25rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: translateX(3px);
+}
+
+/* Nav link styles and animation */
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#006daa, #006daa);
+}
+
+.link-underline:hover,
+.link-underline.active {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  color: #006daa;
+}
+
+/* Custom Cursor */
+
+#custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  backdrop-filter: invert(1);
+  z-index: 1000;
+  pointer-events: none;
+  transform: translate3d(-500px, 0, 0);
+}
+
+/* Contact container animation */
+
+#contact {
+  z-index: -10;
+  opacity: 0;
+  transition: all 500ms linear;
+}
+
+#contact.show-contact {
+  z-index: 100;
+  opacity: 1;
+}
+
+#form-contact {
+  opacity: 0;
+  transition: all 10ms linear;
+}
+.show-contact #form-contact {
+  opacity: 1;
+}
+
+/* Header logo */
+
+#header-logo {
+  animation: rotation 10000ms linear 3000ms infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(20deg);
+  }
+
+  20% {
+    transform: rotate(10deg);
+  }
+
+  30% {
+    transform: rotate(60deg);
+  }
+
+  40% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(60deg);
+  }
+
+  /* 60% {
+    transform: rotate(0deg);
+  }
+
+  70% {
+    transform: rotate(0deg);
+  } */
+
+  80% {
+    transform: rotate(360deg);
+  }
+
+  85% {
+    transform: rotate(390deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sidebar */
+
+#sidebar-bg {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
+}
+
+/* here to override the div that contains the dots*/
+.rec-pagination {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50vh;
+  bottom: 0;
+  right: 0;
+}
+
+.rec-dot {
+  border: 1px solid black !important;
+  width: 8px !important;
+  height: 8px !important;
+  box-shadow: none !important;
+}
+
+.cVXxbE {
+  background: rgba(0, 0, 0, 1) !important;
+}
+
+/*here to ovverride the height of the carousel wrapper use min-heiht if its supperir to 580 use max-height if the contrary*/
+.lguFiu {
+  min-height: 600px;
+}
+
+.play-anim {
+  animation: showUp 2s;
+}
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+}
+
+/* first Screen */
+
+.fontp {
+  font-family: "Poppins";
+  font-weight: 700;
+  color: #856da6;
+  z-index: 5;
+  letter-spacing: 0.75vw;
+  /* mix-blend-mode: difference; */
+  animation: title-show 0.8s linear;
+  position: relative;
+}
+
+.rond {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(30vh, -30vh);
+  background-color: #aca9ff;
+  /* mix-blend-mode: difference; */
+  z-index: 2;
+  animation: orbit 15s infinite linear;
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(30vh, -30vh) scale(1);
+    mix-blend-mode: normal;
+    z-index: 2;
+    background-color: #aca9ff;
+  }
+  50% {
+    transform: translate(-30vh, 30vh) scale(1);
+    mix-blend-mode: normal;
+    z-index: 2;
+    background-color: #aca9ff;
+  }
+  53% {
+    mix-blend-mode: normal;
+    background-color: #aca9ff;
+  }
+  53.1% {
+    transform: translate(-40vh, 30vh) scale(1.5);
+    mix-blend-mode: difference;
+    z-index: 5;
+    background-color: #535600;
+  }
+  97% {
+    transform: translate(30vh, -30vh) scale(1.5);
+    mix-blend-mode: difference;
+    z-index: 5;
+    background-color: #535600;
+  }
+  99.9% {
+    mix-blend-mode: difference;
+    background-color: #535600;
+  }
+  100% {
+    transform: translate(30vh, -30vh) scale(1);
+    mix-blend-mode: normal;
+    background-color: #aca9ff;
+  }
+}
+
+@keyframes title-show {
+  0% {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
