@@ -40,12 +40,12 @@ const Contact = ({ showContact, setShowContact }) => {
       id="contact"
       className={`${
         showContact ? "show-contact" : ""
-      } bg-white fixed top-0 bottom-0 right-0 left-0 w-screen h-full flex justify-center items-center p-4`}
+      } bg-white fixed top-0 bottom-0 right-0 left-0 w-screen h-full flex justify-center items-start p-4`}
     >
       <form
         id="form-contact"
         onSubmit={handleSubmit}
-        className="max-w-3xl w-full min-w-fit flex flex-col justify-start gap-2 md:gap-8 p-2 mt-28"
+        className="max-w-3xl w-full min-w-fit flex flex-col justify-start gap-2 md:gap-8 p-2 mt-10"
       >
         <div className="flex flex-col md:flex-row justify-start items-center gap-8">
           <div className="w-full md:w-1/2 flex flex-col items-start">

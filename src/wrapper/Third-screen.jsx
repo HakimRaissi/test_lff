@@ -29,7 +29,7 @@ const ThirdScreen = () => {
           </h2>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-start items-center gap-y-8 md:gap-x-32">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center gap-y-8 md:gap-x-32">
           <div className="relative w-[240px] sm:w-[300px] h-[240px] sm:h-[300px]">
             <Image
               src={"/icons/LFF_logo.svg"}
@@ -39,7 +39,7 @@ const ThirdScreen = () => {
               data-aos="fade-up"
             />
           </div>
-          <div className="w-full md:w-1/2 pb-8 pr-8">
+          <div className="w-full md:w-1/2">
             <p data-aos="fade-up" className="text-center md:text-left">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

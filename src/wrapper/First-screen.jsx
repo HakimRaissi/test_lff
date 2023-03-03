@@ -61,17 +61,6 @@ const FirstScreen = ({ setShowContact }) => {
 
         <div className="rond"></div>
       </div>
-
-      <div
-        className={`fixed bottom-4 left-8  flex-col items-center hidden sm:flex duration-300 ${
-          showScroll ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <p id="scroll-text" className="capitalize text-lg tracking-wider">
-          scroll down
-        </p>
-        <div className="h-[70px] w-[3px] bg-dark mt-2"></div>
-      </div>
     </section>
   );
 };

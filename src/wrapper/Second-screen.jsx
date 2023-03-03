@@ -28,7 +28,6 @@ const SecondScreen = () => {
           modules={[Mousewheel, Pagination]}
           centeredSlides={true}
           grabCursor={true}
-          loop={true}
           direction={"vertical"}
           mousewheel={true}
           className="swiper-second-screen"
