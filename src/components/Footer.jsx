@@ -7,7 +7,7 @@ import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   // JSX
   return (
-    <footer className="w-full h-32 py-24 flex flex-col justify-center items-center bg-dark">
+    <footer className="w-full h-32 absolute bottom-0 left-0 right-0 py-24 flex flex-col justify-center items-center bg-dark">
       <p className="text-light">© 2023 La Ferme Francaise.</p>
 
       <div className="flex gap-12 mt-8">

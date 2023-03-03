@@ -16,8 +16,8 @@ const ThirdScreen = () => {
 
   //JSX
   return (
-    <section className="relative w-full px-3 py-6">
-      <div className="max-w-6xl h-full flex flex-col justify-start items mx-auto">
+    <section className="relative min-h-screen w-full py-6">
+      <div className="lg:max-w-6xl h-full flex flex-col justify-start items-center mx-auto">
         <div className="w-full">
           <h2
             data-aos="fade-up"

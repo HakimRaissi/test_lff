@@ -48,13 +48,13 @@ const Home = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (window.navigator.userAgentData.mobile) {
-      customCursorRef.current.remove();
-    }
-    window.addEventListener("mousemove", positionElement);
-    return () => window.removeEventListener("mousemove", positionElement);
-  }, []);
+  // useEffect(() => {
+  //   if (window.navigator.userAgentData.mobile) {
+  //     customCursorRef.current.remove();
+  //   }
+  //   window.addEventListener("mousemove", positionElement);
+  //   // return () => window.removeEventListener("mousemove", positionElement);
+  // }, []);
 
   // useEffect(() => {
   //   const contactPage = document.getElementById("contact");
@@ -66,23 +66,23 @@ const Home = () => {
   //   }
   // }, [showContact]);
 
-  const positionElement = (event) => {
-    if (
-      event.clientY <= 2 ||
-      event.clientX <= 2 ||
-      event.clientX >= window.innerWidth - 2 ||
-      event.clientY >= window.innerHeight - 2
-    ) {
-      customCursorRef.current.classList.add("hidden");
-    } else {
-      customCursorRef.current.classList.remove("hidden");
-    }
+  // const positionElement = (event) => {
+  //   if (
+  //     event.clientY <= 2 ||
+  //     event.clientX <= 2 ||
+  //     event.clientX >= window.innerWidth - 2 ||
+  //     event.clientY >= window.innerHeight - 2
+  //   ) {
+  //     customCursorRef.current.classList.add("hidden");
+  //   } else {
+  //     customCursorRef.current.classList.remove("hidden");
+  //   }
 
-    const mouseY = event.clientY - 10;
-    const mouseX = event.clientX - 10;
+  //   const mouseY = event.clientY - 10;
+  //   const mouseX = event.clientX - 10;
 
-    customCursorRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  };
+  //   customCursorRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  // };
 
   // JSX
   return (
@@ -95,7 +95,7 @@ const Home = () => {
       </Head>
 
       {/* Custom Cursor */}
-      <div id="custom-cursor" ref={customCursorRef}></div>
+      {/* <div id="custom-cursor" ref={customCursorRef}></div> */}
 
       {/* Header */}
       <Header setShowContact={setShowContact} />

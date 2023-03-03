@@ -1,18 +1,19 @@
 /* Imports */
 
-import { useEffect } from "react";
-// import of AOS
-
-import Aos from "aos";
-import "aos/dist/aos.css";
-
-// Third party
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// React
+import { useEffect, useState } from "react";
 
 // Nextjs
 import Image from "next/image";
+
+// Third party
+import Aos from "aos";
+import "aos/dist/aos.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 /* Dummy Data */
 const testimonials = [
@@ -57,15 +58,6 @@ const testimonials = [
   },
 ];
 
-/* Constants */
-
-const settings = {
-  dots: true,
-  infinite: true,
-  slidesToShow: 1,
-  arrows: false,
-};
-
 /* Main Component */
 const FifthScreen = () => {
   useEffect(() => {
@@ -74,7 +66,7 @@ const FifthScreen = () => {
 
   // JSX
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-start items-center px-3 py-6">
+    <section className="relative max-w-6xl w-full min-h-screen flex flex-col justify-start items-center mx-auto py-6">
       <h2
         data-aos="fade-up"
         className="text-3xl sm:text-4xl lg:text-6xl mb-8 text-center font-bold"
@@ -82,46 +74,58 @@ const FifthScreen = () => {
         Nos Client peuvent en temoigner
       </h2>
 
-      {/* <div className="w-full mt-16">
-        <Slider
-          {...settings}
-
-          // autoplay={true}
-          // autoplaySpeed={3000}
-        >
-          {testimonials &&
-            testimonials.map((testimony, index) => {
-              return <Card key={index + testimony.id} data={testimony} />;
-            })}
-        </Slider>
-      </div> */}
+      <Swiper
+        pagination={{
+          dynamicBullets: true,
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        centeredSlides={true}
+        grabCursor={true}
+        loop={true}
+        className="swiper-fifth-screen"
+      >
+        {testimonials &&
+          testimonials.map((testimony, index) => {
+            return (
+              <SwiperSlide key={index + testimony.id}>
+                <Card testimony={testimony} />
+              </SwiperSlide>
+            );
+          })}
+      </Swiper>
     </section>
   );
 };
 
 /* Sub components */
 
-const Card = ({ data }) => {
+const Card = ({ testimony }) => {
   return (
-    <div data-aos="fade-up" className="w-full flex justify-center mb-8">
-      <div className="p-4 rounded-xl shadow-lg cursor-pointer hover:scale-105 duration-300 bg-white">
-        <div className="flex items-center mb-4">
-          <div className="relative w-[80px] h-[80px]">
-            <Image
-              src={data.imageUrl}
-              alt={data.client}
-              fill
-              className="rounded-full"
-            />
+    <div className="w-full flex justify-center">
+      <div
+        data-aos="fade-up"
+        className="min-w-[240px] w-[240px] sm:min-w-[420px] sm:w-[420px] md:min-w-[500px] md:w-[500px] lg:min-w-[700px] lg:w-[700px]  justify-center inline-flex border-blue-600"
+      >
+        <div className="p-4 rounded-xl shadow-lg cursor-pointer hover:scale-105 duration-300 bg-white">
+          <div className="flex items-center mb-4">
+            <div className="relative w-[80px] h-[80px]">
+              <Image
+                src={testimony.imageUrl}
+                alt={testimony.client}
+                fill
+                className="rounded-full"
+              />
+            </div>
+
+            <div className="ml-2">
+              <p className="text-lg font-semibold">{testimony.client}</p>
+              <p className="text-sm text-gray-600">{testimony.company}</p>
+            </div>
           </div>
 
-          <div className="ml-2">
-            <p className="text-lg font-semibold">{data.client}</p>
-            <p className="text-sm text-gray-600">{data.company}</p>
-          </div>
+          <p>{testimony.feedback}</p>
         </div>
-
-        <p>{data.feedback}</p>
       </div>
     </div>
   );

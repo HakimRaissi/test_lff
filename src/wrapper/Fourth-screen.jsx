@@ -109,49 +109,51 @@ const FourthScreen = () => {
 
   //JSX
   return (
-    <section className="relative min-h-screen flex flex-col justify-start items-center px-3 py-6">
-      <div className="flex justify-center items-center flex-wrap gap-4 mb-8">
-        {filters &&
-          filters.map((filter, index) => {
-            return (
-              <div
-                // data-aos="fade-up"
-                key={index + filter.name}
-                onClick={() => handleTab(filter.name)}
-                className={`${
-                  currentTab === filter.name
-                    ? "bg-white text-primary shadow-xl"
-                    : ""
-                } py-2 px-6 rounded-full duration-500`}
-              >
-                <p className="text-base xl:text-2xl font-medium capitalize">
-                  {filter.name}
-                </p>
-              </div>
-            );
-          })}
-      </div>
+    <section className="relative min-h-screen flex flex-col justify-start items-center py-6">
+      <div className="lg:max-w-6xl flex flex-col justify-start items-center">
+        <div className="flex justify-center items-center flex-wrap gap-4 mb-8">
+          {filters &&
+            filters.map((filter, index) => {
+              return (
+                <div
+                  // data-aos="fade-up"
+                  key={index + filter.name}
+                  onClick={() => handleTab(filter.name)}
+                  className={`${
+                    currentTab === filter.name
+                      ? "bg-white text-primary shadow-xl"
+                      : ""
+                  } py-2 px-6 rounded-full duration-500`}
+                >
+                  <p className="text-base xl:text-2xl font-medium capitalize">
+                    {filter.name}
+                  </p>
+                </div>
+              );
+            })}
+        </div>
 
-      <div
-        data-aos="fade-up"
-        className="flex justify-center gap-24 flex-wrap mb-12"
-      >
-        {projects &&
-          projects.map((project, index) => {
-            return <Card key={index + project.id} data={project} />;
-          })}
-      </div>
+        <div
+          data-aos="fade-up"
+          className="flex justify-center gap-24 flex-wrap mb-12"
+        >
+          {projects &&
+            projects.map((project, index) => {
+              return <Card key={index + project.id} data={project} />;
+            })}
+        </div>
 
-      <button
-        data-aos="fade-down"
-        onClick={handleViewMore}
-        className="flex items-center gap-4 mt-12 py-2 px-4 rounded-full text-lg font-medium capitalize duration-300 hover:bg-gray-100"
-      >
-        view more work
-        <span>
-          <TbPlus />
-        </span>
-      </button>
+        <button
+          data-aos="fade-down"
+          onClick={handleViewMore}
+          className="flex items-center gap-4 mt-12 py-2 px-4 rounded-full text-lg font-medium capitalize duration-300 hover:bg-gray-100"
+        >
+          view more work
+          <span>
+            <TbPlus />
+          </span>
+        </button>
+      </div>
     </section>
   );
 };
